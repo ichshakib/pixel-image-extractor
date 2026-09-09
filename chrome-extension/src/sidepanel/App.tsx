@@ -1,22 +1,36 @@
-import crxLogo from '@/assets/crx.svg'
-import reactLogo from '@/assets/react.svg'
-import viteLogo from '@/assets/vite.svg'
-import HelloWorld from '@/components/HelloWorld'
-import './App.css'
+import { useEffect } from 'react';
+import { Header } from './components/Header';
+import { FilterBar } from './components/FilterBar';
+import { FloatingActionBar } from './components/FloatingActionBar';
+import { ImageGrid } from './components/ImageGrid';
+import { EmptyState } from './components/EmptyState';
+import { LoadingSkeleton } from './components/LoadingSkeleton';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { Toaster } from './components/Toaster';
+import { useImageStore } from './store/useImageStore';
 
 export default function App() {
+  const loading = useImageStore((s) => s.loading);
+  const imagesCount = useImageStore((s) => s.images.length);
+  const fetchImagesFromTab = useImageStore((s) => s.fetchImagesFromTab);
+
+  useEffect(() => {
+    fetchImagesFromTab();
+  }, [fetchImagesFromTab]);
+
+  if (loading) {
+    return <LoadingSkeleton />;
+  }
+
   return (
-    <div>
-      <a href="https://vite.dev" target="_blank" rel="noreferrer">
-        <img src={viteLogo} className="logo" alt="Vite logo" />
-      </a>
-      <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
-        <img src={reactLogo} className="logo react" alt="React logo" />
-      </a>
-      <a href="https://crxjs.dev/vite-plugin" target="_blank" rel="noreferrer">
-        <img src={crxLogo} className="logo crx" alt="crx logo" />
-      </a>
-      <HelloWorld msg="Vite + React + CRXJS" />
-    </div>
-  )
+    <ErrorBoundary>
+      <div className="sidepanel-container">
+        <Header />
+        {imagesCount > 0 && <FilterBar />}
+        <FloatingActionBar />
+        {imagesCount === 0 && !loading ? <EmptyState /> : <ImageGrid />}
+        <Toaster />
+      </div>
+    </ErrorBoundary>
+  );
 }
