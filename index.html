@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel — Extract Images from Any Website</title>
+  <meta name="description" content="A high-performance Chrome extension for extracting, analyzing, and managing images from any webpage. Supporting Shadow DOM, bulk ZIP exports, and advanced filtering.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="shortcut icon" href="favicon_io/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+  <!-- ── GITHUB CORNER ── -->
+  <a
+    href="https://github.com/ichshakib/pixel-image-extractor"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="github-link"
+    title="View on GitHub"
+    aria-label="View on GitHub"
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+    </svg>
+  </a>
+
+  <!-- ── SIDEBAR ── -->
+  <aside id="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22" fill="none">
+            <g fill="#1c1510" transform="translate(5 0)">
+              <path d="m25.0008 24c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z" />
+              <path d="m25.0008 10c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6c0-3.31371 2.6863-6 6-6s6 2.68629 6 6z" />
+              <path d="m37.125 31c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z" />
+              <path d="m37.127 17.0002c0 3.3137-2.6863 6-6 6-3.3138 0-6-2.6863-6-6s2.6862-6 6-6c3.3137 0 6 2.6863 6 6z" />
+              <path d="m25.0008 38c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z" />
+              <path d="m12.877 17c0 3.3137-2.6863 6-6.00005 6-3.31371 0-5.999997-2.6863-5.999997-6s2.686287-6 5.999997-6c3.31375 0 6.00005 2.6863 6.00005 6z" />
+              <path d="m12.875 30.9997c0 3.3137-2.6863 6-6 6-3.31371 0-6-2.6863-6-6s2.68629-6 6-6c3.3137 0 6 2.6863 6 6z" />
+            </g>
+          </svg>
+        </div>
+        <span class="brand-name">Pixel</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#hero" class="nav-item active">
+          <span class="nav-dot"></span> Home
+        </a>
+        <a href="#about" class="nav-item">
+          <span class="nav-dot"></span> About
+        </a>
+        <a href="#features" class="nav-item">
+          <span class="nav-dot"></span> Features
+        </a>
+        <a href="#howto" class="nav-item">
+          <span class="nav-dot"></span> Install
+        </a>
+        <a href="#download" class="nav-item">
+          <span class="nav-dot"></span> Download
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <a href="https://github.com/ichshakib/pixel-image-extractor/releases/download/v1.0.3/pixel-image-extractor-v1.0.3.zip" download class="sidebar-cta">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          style="margin-right: 6px; vertical-align: middle;"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Download
+      </a>
+      <p class="sidebar-version">Chrome · v1.0.3 · Free</p>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <div id="main">
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg-word">PIXEL</div>
+
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-tag reveal">
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+            Chrome Extension
+          </div>
+          <h1 class="hero-title reveal delay-1">
+            The ultimate <span class="italic">image extraction</span>
+            <br />
+            tool for Chrome.
+          </h1>
+          <p class="hero-sub reveal delay-2">
+            One click to discover every asset on the page — from high-res
+            banners and lazy-loaded icons to images hidden inside Shadow
+            DOMs.
+          </p>
+          <div class="hero-actions reveal delay-3">
+            <a href="https://github.com/ichshakib/pixel-image-extractor/releases/download/v1.0.3/pixel-image-extractor-v1.0.3.zip" download class="btn-primary">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Get Pixel Free
+            </a>
+            <a href="#features" class="btn-outline">
+              Explore features
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right reveal delay-2">
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="tile-inner">
+              <span class="tile-check">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1c1510" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-deco deco-a"></div>
+      <div class="about-deco deco-b"></div>
+      <div class="about-inner">
+        <div class="about-left">
+          <p class="about-label reveal">What is Pixel?</p>
+          <h2 class="about-title reveal delay-1">
+            Total control over
+            <br />
+            web assets.
+            <br />
+            <em>No more digging.</em>
+          </h2>
+        </div>
+        <div class="about-right">
+          <p class="about-desc reveal delay-2">
+            Pixel scans the active tab to collect every resource — from
+            standard &lt;img&gt; tags and srcset to CSS backgrounds and
+            modern Shadow DOM components. Preview them in a high-fidelity
+            grid, filter by exact resolution, and export exactly what you
+            need.
+          </p>
+          <div class="stat-row">
+            <div class="stat reveal delay-3">
+              <div class="stat-num">Deep</div>
+              <div class="stat-label">DOM & Shadow scan</div>
+            </div>
+            <div class="stat reveal delay-4">
+              <div class="stat-num">All-in-one</div>
+              <div class="stat-label">ZIP, CSV, & JSON</div>
+            </div>
+            <div class="stat reveal delay-5">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Private & Local</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="features-header reveal">
+        <h2 class="features-title">
+          Professional <em>tools</em>
+          <br />
+          for asset management.
+        </h2>
+        <p class="features-intro">
+          Built for designers and developers who need more than just a basic
+          scraper.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feat-card reveal delay-1">
+          <span class="feat-num">01</span>
+          <div class="feat-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#d97f4f"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </div>
+          <h3 class="feat-title">Shadow DOM Support</h3>
+          <p class="feat-desc">
+            The only extractor that recursively dives into Shadow Roots to
+            find images encapsulated in modern web components.
+          </p>
+        </div>
+
+        <div class="feat-card reveal delay-2">
+          <span class="feat-num">02</span>
+          <div class="feat-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#d97f4f"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg>
+          </div>
+          <h3 class="feat-title">Data Export</h3>
+          <p class="feat-desc">
+            Beyond images — export full asset metadata as CSV or JSON to
+            integrate directly into your design system or dev workflow.
+          </p>
+        </div>
+
+        <div class="feat-card large reveal delay-1">
+          <div>
+            <span class="feat-num">03</span>
+            <div class="feat-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#d97f4f"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            </div>
+            <h3 class="feat-title">Batch ZIP Bundling</h3>
+            <p class="feat-desc">
+              Select dozens of images and bundle them into a single,
+              optimized ZIP file. Pixel handles naming and deduplication for
+              you automatically.
+            </p>
+          </div>
+          <div class="feat-demo">
+            <div class="demo-tile"></div>
+            <div class="demo-tile"></div>
+            <div class="demo-tile"></div>
+            <div class="demo-tile"></div>
+            <div class="demo-tile"></div>
+            <div class="demo-tile"></div>
+            <div class="demo-tile"></div>
+            <div class="demo-tile"></div>
+          </div>
+        </div>
+
+        <div class="feat-card reveal delay-2">
+          <span class="feat-num">04</span>
+          <div class="feat-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#d97f4f"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+          </div>
+          <h3 class="feat-title">Smart Filtering</h3>
+          <p class="feat-desc">
+            Instantly filter by resolution, aspect ratio, or file format.
+            Hide trackers and small icons to focus only on high-quality
+            assets.
+          </p>
+        </div>
+
+        <div class="feat-card reveal delay-3">
+          <span class="feat-num">05</span>
+          <div class="feat-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#d97f4f"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3 class="feat-title">No Data Collected</h3>
+          <p class="feat-desc">
+            Pixel works entirely locally. No analytics, no servers, no
+            account. Your browsing stays yours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="howto">
+      <div class="howto-inner">
+        <p class="howto-label reveal">Installation</p>
+        <h2 class="howto-title reveal delay-1">
+          Two ways to install
+          <br />
+          in seconds.
+        </h2>
+
+        <div class="steps-row">
+          <div class="step-item reveal delay-1">
+            <div class="step-circle">A</div>
+            <h4 class="step-title">Unzip & Load</h4>
+            <p class="step-desc">
+              Extract <code>pixel.zip</code>, open
+              <code>chrome://extensions</code>, enable Developer Mode, and
+              click "Load Unpacked".
+            </p>
+          </div>
+          <div class="step-item reveal delay-2">
+            <div class="step-circle">B</div>
+            <h4 class="step-title">Drag & Drop</h4>
+            <p class="step-desc">
+              Open <code>chrome://extensions</code> with Developer Mode on,
+              then simply drag <code>pixel.zip</code> directly into the
+              window.
+            </p>
+          </div>
+        </div>
+
+        <div class="code-bar reveal delay-4">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          chrome://extensions
+          <span class="sep">→</span>
+          <span class="muted">Enable Developer Mode</span>
+          <span class="sep">→</span>
+          <span class="muted">Install Pixel</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download">
+      <div class="dl-bg"></div>
+      <div class="dl-inner">
+        <div class="dl-icon reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40" fill="none">
+            <g fill="#d97f4f" transform="translate(5 0)">
+              <path d="m25.0008 24c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z" />
+              <path d="m25.0008 10c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6c0-3.31371 2.6863-6 6-6s6 2.68629 6 6z" />
+              <path d="m37.125 31c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z" />
+              <path d="m37.127 17.0002c0 3.3137-2.6863 6-6 6-3.3138 0-6-2.6863-6-6s2.6862-6 6-6c3.3137 0 6 2.6863 6 6z" />
+              <path d="m25.0008 38c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z" />
+              <path d="m12.877 17c0 3.3137-2.6863 6-6.00005 6-3.31371 0-5.999997-2.6863-5.999997-6s2.686287-6 5.999997-6c3.31375 0 6.00005 2.6863 6.00005 6z" />
+              <path d="m12.875 30.9997c0 3.3137-2.6863 6-6 6-3.31371 0-6-2.6863-6-6s2.68629-6 6-6c3.3137 0 6 2.6863 6 6z" />
+            </g>
+          </svg>
+        </div>
+        <h2 class="dl-title reveal delay-1">
+          Every image,
+          <br />
+          <em>instantly yours.</em>
+        </h2>
+        <p class="dl-sub reveal delay-2">
+          Free forever. No sign-up. No account.
+          <br />
+          Just install and start extracting.
+        </p>
+        <div class="reveal delay-3">
+          <a href="https://github.com/ichshakib/pixel-image-extractor/releases/download/v1.0.3/pixel-image-extractor-v1.0.3.zip" download class="dl-btn">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download Pixel (.zip)
+          </a>
+          <br />
+          <span class="dl-note">
+            Chrome only · Unpacked extension · Free
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="footer-brand">Pixel</span>
+      <span class="footer-note">
+        © 2026 Pixel · Not affiliated with Google Chrome
+      </span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
