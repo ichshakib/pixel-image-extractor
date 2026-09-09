@@ -19,7 +19,7 @@ export default defineManifest({
     default_title: 'Pixel — Image Extractor',
   },
   background: {
-    service_worker: 'src/background.ts',
+    service_worker: 'src/background/index.ts',
   },
   content_scripts: [
     {

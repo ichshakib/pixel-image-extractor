@@ -19,6 +19,10 @@ export const ImageCard = ({
   onCopyLink,
   onExternalLink,
 }: ImageCardProps) => {
+  const formatTag = image.mimetype
+    ? image.mimetype.split('/')[1]?.toUpperCase()
+    : null;
+
   return (
     <div className={`image-card ${isSelected ? 'is-selected' : ''}`}>
       <div className="card-media" onClick={() => onSelect(image.id, !isSelected)}>
@@ -37,28 +41,33 @@ export const ImageCard = ({
             aria-label={`Select ${image.alt}`}
           />
         </div>
+        {formatTag && (
+          <div className="card-format-tag" title={`Format: ${formatTag}`}>
+            {formatTag}
+          </div>
+        )}
       </div>
 
       <div className="card-body">
         <p className="card-alt" title={image.alt}>
           {image.alt}
         </p>
-        <div className="card-meta">
-          <span className="card-meta-line">
+
+        <div className="card-badges-row">
+          <span className="card-badge" title="Resolution">
             {image.width} × {image.height}
           </span>
           {image.size ? (
-            <span className="card-meta-line">Size: {formatFileSize(image.size)}</span>
-          ) : null}
-          {image.mimetype ? (
-            <span className="card-meta-line">Type: {image.mimetype}</span>
+            <span className="card-badge" title="File Size">
+              {formatFileSize(image.size)}
+            </span>
           ) : null}
         </div>
 
         <div className="card-footer">
           <button
             type="button"
-            className="btn btn-ghost-sm"
+            className="btn btn-card-action"
             onClick={() => onDownload(image.url, image.alt)}
             title="Download image"
             aria-label="Download image"
@@ -67,7 +76,7 @@ export const ImageCard = ({
           </button>
           <button
             type="button"
-            className="btn btn-ghost-sm"
+            className="btn btn-card-action"
             onClick={() => onCopyLink(image.url)}
             title="Copy image URL"
             aria-label="Copy image URL"
@@ -76,7 +85,7 @@ export const ImageCard = ({
           </button>
           <button
             type="button"
-            className="btn btn-ghost-sm"
+            className="btn btn-card-action"
             onClick={() => onExternalLink(image.url)}
             title="Open in new tab"
             aria-label="Open in new tab"
