@@ -11,6 +11,7 @@
   "dependencies": {
     "jszip": "^3.10.1",
     "lucide-react": "^1.43.0",
+    "omggif": "^1.0.10",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "zustand": "^5.0.15"
@@ -20,6 +21,7 @@
     "@types/chrome": "^0.1.37",
     "@types/jszip": "^3.4.1",
     "@types/node": "^25.5.0",
+    "@types/omggif": "^1.0.5",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",

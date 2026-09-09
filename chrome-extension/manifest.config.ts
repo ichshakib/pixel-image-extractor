@@ -13,7 +13,7 @@ export default defineManifest({
     48: 'public/icons/icon48.png',
     128: 'public/icons/icon128.png',
   },
-  permissions: ['sidePanel', 'activeTab', 'scripting'],
+  permissions: ['sidePanel', 'activeTab', 'scripting', 'contextMenus', 'downloads'],
   host_permissions: ['<all_urls>'],
   action: {
     default_title: 'Pixel — Image Extractor',
