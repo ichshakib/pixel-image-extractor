@@ -1,9 +1,31 @@
-import { RefreshCcw } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { RefreshCcw, Sun, Moon } from 'lucide-react';
 import { useImageStore } from '../store/useImageStore';
 
 export const Header = () => {
   const loading = useImageStore((s) => s.loading);
   const fetchImagesFromTab = useImageStore((s) => s.fetchImagesFromTab);
+
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem('pixel-theme');
+    if (saved) return saved === 'dark';
+    return typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.setAttribute('data-theme', 'dark');
+      localStorage.setItem('pixel-theme', 'dark');
+    } else {
+      root.setAttribute('data-theme', 'light');
+      localStorage.setItem('pixel-theme', 'light');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => !prev);
+  };
 
   return (
     <header className="header-row">
@@ -19,6 +41,16 @@ export const Header = () => {
       </div>
 
       <div className="header-actions">
+        <button
+          type="button"
+          onClick={toggleTheme}
+          className="btn btn-icon"
+          title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          aria-label="Toggle theme"
+        >
+          {isDark ? <Sun size={15} /> : <Moon size={15} />}
+        </button>
+
         <button
           onClick={fetchImagesFromTab}
           disabled={loading}

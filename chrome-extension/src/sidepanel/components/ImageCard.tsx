@@ -42,7 +42,10 @@ export const ImageCard = ({
           />
         </div>
         {formatTag && (
-          <div className="card-format-tag" title={`Format: ${formatTag}`}>
+          <div
+            className={`card-format-tag format-${formatTag.toLowerCase()}`}
+            title={`Format: ${formatTag}`}
+          >
             {formatTag}
           </div>
         )}
