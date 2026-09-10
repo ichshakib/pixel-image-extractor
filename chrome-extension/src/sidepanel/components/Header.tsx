@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { RefreshCcw, Sun, Moon } from 'lucide-react';
+import { RefreshCcw, Sun, Moon, Globe } from 'lucide-react';
 import { useImageStore } from '../store/useImageStore';
+
+const WEBSITE_URL = 'https://ichshakib.github.io/pixel-image-extractor/';
 
 export const Header = () => {
   const loading = useImageStore((s) => s.loading);
@@ -29,7 +31,13 @@ export const Header = () => {
 
   return (
     <header className="header-row">
-      <div className="header-brand">
+      <div
+        className="header-brand"
+        onClick={() => window.open(WEBSITE_URL, '_blank')}
+        title="Pixel — Open Website"
+        role="button"
+        tabIndex={0}
+      >
         <div className="header-logo">
           <img
             src={typeof chrome !== 'undefined' && chrome.runtime?.getURL ? chrome.runtime.getURL('logo.svg') : '/logo.svg'}
@@ -49,6 +57,16 @@ export const Header = () => {
           aria-label="Toggle theme"
         >
           {isDark ? <Sun size={15} /> : <Moon size={15} />}
+        </button>
+
+        <button
+          type="button"
+          onClick={() => window.open(WEBSITE_URL, '_blank')}
+          className="btn btn-icon"
+          title="Visit Website"
+          aria-label="Visit Website"
+        >
+          <Globe size={15} />
         </button>
 
         <button
