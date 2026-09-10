@@ -1,4 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // ── THEME SWITCHER ──
+  const themeToggle = document.getElementById('theme-toggle');
+
+  function getThemePreference() {
+    const saved = localStorage.getItem('pixel-web-theme');
+    if (saved === 'light' || saved === 'dark') return saved;
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem('pixel-web-theme', theme);
+  }
+
+  // Ensure theme is set on load
+  setTheme(getThemePreference());
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
+  }
+
+  // Respond to OS system theme preference changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('pixel-web-theme')) {
+      setTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
   const navItems = document.querySelectorAll('.sidebar-nav .nav-item');
 
   function setActiveNav(id) {
