@@ -9,48 +9,11 @@ export const Header = () => {
     <header className="header-row">
       <div className="header-brand">
         <div className="header-logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18" fill="none">
-            <defs>
-              <linearGradient id="hdr-center" x1="18" y1="18" x2="30" y2="30" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FF3B69"/>
-                <stop offset="50%" stop-color="#8B5CF6"/>
-                <stop offset="100%" stop-color="#00C9FF"/>
-              </linearGradient>
-              <linearGradient id="hdr-top" x1="24" y1="4" x2="24" y2="16" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FF2E56"/>
-                <stop offset="100%" stop-color="#FF6B4A"/>
-              </linearGradient>
-              <linearGradient id="hdr-topright" x1="30" y1="11" x2="42" y2="23" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FF8A00"/>
-                <stop offset="100%" stop-color="#FFAE00"/>
-              </linearGradient>
-              <linearGradient id="hdr-botright" x1="30" y1="25" x2="42" y2="37" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#00D072"/>
-                <stop offset="100%" stop-color="#00B4D8"/>
-              </linearGradient>
-              <linearGradient id="hdr-bottom" x1="24" y1="32" x2="24" y2="44" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#0088FF"/>
-                <stop offset="100%" stop-color="#244BFF"/>
-              </linearGradient>
-              <linearGradient id="hdr-botleft" x1="6" y1="25" x2="18" y2="37" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#5E17EB"/>
-                <stop offset="100%" stop-color="#8B5CF6"/>
-              </linearGradient>
-              <linearGradient id="hdr-topleft" x1="6" y1="11" x2="18" y2="23" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#D9138A"/>
-                <stop offset="100%" stop-color="#FF2A6D"/>
-              </linearGradient>
-            </defs>
-            <g>
-              <circle cx="24" cy="10" r="6" fill="url(#hdr-top)"/>
-              <circle cx="36.124" cy="17" r="6" fill="url(#hdr-topright)"/>
-              <circle cx="36.124" cy="31" r="6" fill="url(#hdr-botright)"/>
-              <circle cx="24" cy="38" r="6" fill="url(#hdr-bottom)"/>
-              <circle cx="11.876" cy="31" r="6" fill="url(#hdr-botleft)"/>
-              <circle cx="11.876" cy="17" r="6" fill="url(#hdr-topleft)"/>
-              <circle cx="24" cy="24" r="6" fill="url(#hdr-center)"/>
-            </g>
-          </svg>
+          <img
+            src={typeof chrome !== 'undefined' && chrome.runtime?.getURL ? chrome.runtime.getURL('logo.svg') : '/logo.svg'}
+            alt="Pixel"
+            className="header-logo-img"
+          />
         </div>
         <span className="header-title">Pixel</span>
       </div>
