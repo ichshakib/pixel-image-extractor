@@ -18,17 +18,19 @@ export default function App() {
     fetchImagesFromTab();
   }, [fetchImagesFromTab]);
 
-  if (loading) {
-    return <LoadingSkeleton />;
-  }
-
   return (
     <ErrorBoundary>
       <div className="sidepanel-container">
         <Header />
-        {imagesCount > 0 && <FilterBar />}
-        <FloatingActionBar />
-        {imagesCount === 0 && !loading ? <EmptyState /> : <ImageGrid />}
+        {loading ? (
+          <LoadingSkeleton />
+        ) : (
+          <>
+            {imagesCount > 0 && <FilterBar />}
+            <FloatingActionBar />
+            {imagesCount === 0 ? <EmptyState /> : <ImageGrid />}
+          </>
+        )}
         <Toaster />
       </div>
     </ErrorBoundary>

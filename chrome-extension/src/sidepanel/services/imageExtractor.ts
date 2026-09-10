@@ -1,4 +1,3 @@
-import { toast } from '../utils/toast';
 import type { ImageItem, RawImageItem } from '../types';
 
 /**
@@ -26,9 +25,6 @@ export const extractImagesFromTab = async (tabId: number): Promise<ImageItem[]> 
   } catch (error) {
     const errorMsg = error instanceof Error ? error.message : String(error);
     console.debug('Content script message failed, attempting script injection fallback:', errorMsg);
-    toast.info('Direct communication failed. Attempting fallback script injection...', {
-      duration: 3000,
-    });
   }
 
   // 2. Fallback: Inject script to extract images directly
