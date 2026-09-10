@@ -1,17 +1,61 @@
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 48 48"
-  width="48"
-  height="48"
-  fill="none"
->
-  <g fill="#fff" transform="translate(5 0)">
-    <path d="m25.0008 24c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z"/>
-    <path d="m25.0008 10c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6c0-3.31371 2.6863-6 6-6s6 2.68629 6 6z"/>
-    <path d="m37.125 31c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z"/>
-    <path d="m37.127 17.0002c0 3.3137-2.6863 6-6 6-3.3138 0-6-2.6863-6-6s2.6862-6 6-6c3.3137 0 6 2.6863 6 6z"/>
-    <path d="m25.0008 38c0 3.3137-2.6863 6-6 6s-6-2.6863-6-6 2.6863-6 6-6 6 2.6863 6 6z"/>
-    <path d="m12.877 17c0 3.3137-2.6863 6-6.00005 6-3.31371 0-5.999997-2.6863-5.999997-6s2.686287-6 5.999997-6c3.31375 0 6.00005 2.6863 6.00005 6z"/>
-    <path d="m12.875 30.9997c0 3.3137-2.6863 6-6 6-3.31371 0-6-2.6863-6-6s2.68629-6 6-6c3.3137 0 6 2.6863 6 6z"/>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Sunset Coral & Solar Amber Palette (Optimized for 100% contrast on Light and Dark) -->
+    <linearGradient id="p2-stem-grad" x1="44" y1="44" x2="92" y2="212" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="45%" stop-color="#E11D48" />
+      <stop offset="100%" stop-color="#9F1239" />
+    </linearGradient>
+
+    <linearGradient id="p2-loop-grad" x1="100" y1="44" x2="204" y2="148" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FB7185" />
+      <stop offset="45%" stop-color="#F43F5E" />
+      <stop offset="100%" stop-color="#BE123C" />
+    </linearGradient>
+
+    <linearGradient id="p2-extract-grad" x1="162" y1="36" x2="210" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="40%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <linearGradient id="p2-sparkle-grad" x1="218" y1="26" x2="234" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+
+    <!-- Balanced Warm Shadow / Ambient Glow -->
+    <filter id="p2-extract-shadow" x="146" y="24" width="80" height="80" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#D97706" flood-opacity="0.38" />
+    </filter>
+  </defs>
+
+  <!-- Left Stem of 'P' (Clean Modular Cells with pure negative-space gap) -->
+  <!-- Upper Stem Block -->
+  <rect x="44" y="44" width="48" height="104" rx="14" fill="url(#p2-stem-grad)" />
+  <!-- Lower Stem Block (Clean 8px gap between upper and lower, no divider line) -->
+  <rect x="44" y="156" width="48" height="56" rx="14" fill="url(#p2-stem-grad)" />
+
+  <!-- Loop of 'P' (Connected Modular Pixels) -->
+  <!-- Top Bridge Pixel -->
+  <rect x="100" y="44" width="48" height="48" rx="12" fill="url(#p2-loop-grad)" />
+
+  <!-- Bottom Bridge Pixel -->
+  <rect x="100" y="100" width="48" height="48" rx="12" fill="url(#p2-loop-grad)" />
+
+  <!-- Outer Right Corner Pixel of Loop -->
+  <rect x="156" y="100" width="48" height="48" rx="12" fill="url(#p2-loop-grad)" />
+
+  <!-- DYNAMIC DETACHED EXTRACTED PIXEL (Warm Solar Amber) -->
+  <g filter="url(#p2-extract-shadow)">
+    <!-- Base block -->
+    <rect x="162" y="36" width="48" height="48" rx="14" fill="url(#p2-extract-grad)" />
+    <!-- Specular light bar -->
+    <rect x="166" y="40" width="40" height="18" rx="9" fill="#FFFFFF" fill-opacity="0.35" />
   </g>
+
+  <!-- Extraction Micro-Sparkles -->
+  <rect x="220" y="28" width="12" height="12" rx="3.5" fill="url(#p2-sparkle-grad)" />
+  <circle cx="224" cy="52" r="3.5" fill="#EA580C" />
+  <circle cx="152" cy="30" r="2.5" fill="#F43F5E" opacity="0.8" />
 </svg>
