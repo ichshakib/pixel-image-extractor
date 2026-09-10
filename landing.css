@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,91 +10,91 @@
 
 :root {
   /* Obsidian Dark Foundation (Default) */
-  --canvas:           #080c14;
-  --canvas-elevated:  #0d1424;
-  --canvas-card:      #111a2e;
-  --canvas-card-hover:#16233b;
-  --sidebar-bg:       rgba(10, 15, 26, 0.88);
-  --footer-bg:        #050810;
-  --code-bar-bg:      #050810;
+  --canvas: #080c14;
+  --canvas-elevated: #0d1424;
+  --canvas-card: #111a2e;
+  --canvas-card-hover: #16233b;
+  --sidebar-bg: rgba(10, 15, 26, 0.88);
+  --footer-bg: #050810;
+  --code-bar-bg: #050810;
 
   /* Sunset Coral & Solar Amber Palette (Exact Match to New Logo) */
-  --coral:            #f43f5e;
-  --coral-light:      #fb7185;
-  --coral-dark:       #e11d48;
-  --coral-glow:       rgba(244, 63, 94, 0.28);
-  --amber:            #f59e0b;
-  --amber-light:      #fbbf24;
-  --gradient-coral:   linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
-  --gradient-glow:    radial-gradient(circle at 50% -10%, rgba(244, 63, 94, 0.18) 0%, rgba(245, 158, 11, 0.07) 40%, transparent 70%);
+  --coral: #f43f5e;
+  --coral-light: #fb7185;
+  --coral-dark: #e11d48;
+  --coral-glow: rgba(244, 63, 94, 0.28);
+  --amber: #f59e0b;
+  --amber-light: #fbbf24;
+  --gradient-coral: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+  --gradient-glow: radial-gradient(circle at 50% -10%, rgba(244, 63, 94, 0.18) 0%, rgba(245, 158, 11, 0.07) 40%, transparent 70%);
 
   /* High-Contrast Modern Typography & Shadows */
-  --heading-color:    #ffffff;
-  --text-primary:     #f8fafc;
-  --text-secondary:   #94a3b8;
-  --text-muted:       #64748b;
-  --border:           rgba(255, 255, 255, 0.08);
-  --border-subtle:    rgba(255, 255, 255, 0.05);
-  --border-hover:     rgba(244, 63, 94, 0.45);
-  --hero-word-color:  rgba(255, 255, 255, 0.02);
-  --feat-num-color:   rgba(255, 255, 255, 0.05);
-  --card-shadow:      0 4px 20px rgba(0, 0, 0, 0.25);
-  --card-shadow-hover:0 20px 60px rgba(0, 0, 0, 0.5), 0 0 24px rgba(244, 63, 94, 0.12);
-  --nav-hover-bg:     rgba(255, 255, 255, 0.04);
-  --nav-active-bg:    rgba(244, 63, 94, 0.12);
-  --top-nav-btn-bg:   rgba(15, 23, 42, 0.75);
-  --top-nav-btn-color:#ffffff;
-  --top-nav-btn-hover:#16233b;
+  --heading-color: #ffffff;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(244, 63, 94, 0.45);
+  --hero-word-color: rgba(255, 255, 255, 0.02);
+  --feat-num-color: rgba(255, 255, 255, 0.05);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 24px rgba(244, 63, 94, 0.12);
+  --nav-hover-bg: rgba(255, 255, 255, 0.04);
+  --nav-active-bg: rgba(244, 63, 94, 0.12);
+  --top-nav-btn-bg: rgba(15, 23, 42, 0.75);
+  --top-nav-btn-color: #ffffff;
+  --top-nav-btn-hover: #16233b;
 
   /* Compatibility Tokens */
-  --cream:            var(--canvas);
-  --cream-dk:         var(--canvas-elevated);
-  --peach:            var(--coral-light);
-  --peach-lt:         rgba(244, 63, 94, 0.12);
-  --peach-dk:         var(--coral);
-  --rose:             rgba(244, 63, 94, 0.25);
-  --text:             var(--text-primary);
-  --text-md:          var(--text-secondary);
-  --text-lt:          var(--text-muted);
+  --cream: var(--canvas);
+  --cream-dk: var(--canvas-elevated);
+  --peach: var(--coral-light);
+  --peach-lt: rgba(244, 63, 94, 0.12);
+  --peach-dk: var(--coral);
+  --rose: rgba(244, 63, 94, 0.25);
+  --text: var(--text-primary);
+  --text-md: var(--text-secondary);
+  --text-lt: var(--text-muted);
 }
 
 :root[data-theme="light"] {
   /* Crisp Snow Light Foundation */
-  --canvas:           #f8fafc;
-  --canvas-elevated:  #ffffff;
-  --canvas-card:      #ffffff;
-  --canvas-card-hover:#f1f5f9;
-  --sidebar-bg:       rgba(255, 255, 255, 0.92);
-  --footer-bg:        #f1f5f9;
-  --code-bar-bg:      #0f172a;
+  --canvas: #f8fafc;
+  --canvas-elevated: #ffffff;
+  --canvas-card: #ffffff;
+  --canvas-card-hover: #f1f5f9;
+  --sidebar-bg: rgba(255, 255, 255, 0.92);
+  --footer-bg: #f1f5f9;
+  --code-bar-bg: #0f172a;
 
   /* Sunset Coral & Solar Amber Palette (Light-adapted) */
-  --coral:            #f43f5e;
-  --coral-light:      #e11d48;
-  --coral-dark:       #be123c;
-  --coral-glow:       rgba(244, 63, 94, 0.12);
-  --amber:            #d97706;
-  --amber-light:      #f59e0b;
-  --gradient-coral:   linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
-  --gradient-glow:    radial-gradient(circle at 50% -10%, rgba(244, 63, 94, 0.08) 0%, rgba(245, 158, 11, 0.04) 40%, transparent 70%);
+  --coral: #f43f5e;
+  --coral-light: #e11d48;
+  --coral-dark: #be123c;
+  --coral-glow: rgba(244, 63, 94, 0.12);
+  --amber: #d97706;
+  --amber-light: #f59e0b;
+  --gradient-coral: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+  --gradient-glow: radial-gradient(circle at 50% -10%, rgba(244, 63, 94, 0.08) 0%, rgba(245, 158, 11, 0.04) 40%, transparent 70%);
 
   /* High-Contrast Modern Typography & Shadows */
-  --heading-color:    #0f172a;
-  --text-primary:     #0f172a;
-  --text-secondary:   #475569;
-  --text-muted:       #94a3b8;
-  --border:           rgba(0, 0, 0, 0.08);
-  --border-subtle:    rgba(0, 0, 0, 0.04);
-  --border-hover:     rgba(244, 63, 94, 0.45);
-  --hero-word-color:  rgba(15, 23, 42, 0.035);
-  --feat-num-color:   rgba(0, 0, 0, 0.06);
-  --card-shadow:      0 4px 20px rgba(0, 0, 0, 0.05);
-  --card-shadow-hover:0 20px 40px rgba(244, 63, 94, 0.12), 0 6px 16px rgba(0, 0, 0, 0.06);
-  --nav-hover-bg:     rgba(0, 0, 0, 0.04);
-  --nav-active-bg:    rgba(244, 63, 94, 0.08);
-  --top-nav-btn-bg:   rgba(255, 255, 255, 0.9);
-  --top-nav-btn-color:#0f172a;
-  --top-nav-btn-hover:#f1f5f9;
+  --heading-color: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --border-hover: rgba(244, 63, 94, 0.45);
+  --hero-word-color: rgba(15, 23, 42, 0.035);
+  --feat-num-color: rgba(0, 0, 0, 0.06);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 20px 40px rgba(244, 63, 94, 0.12), 0 6px 16px rgba(0, 0, 0, 0.06);
+  --nav-hover-bg: rgba(0, 0, 0, 0.04);
+  --nav-active-bg: rgba(244, 63, 94, 0.08);
+  --top-nav-btn-bg: rgba(255, 255, 255, 0.9);
+  --top-nav-btn-color: #0f172a;
+  --top-nav-btn-hover: #f1f5f9;
 }
 
 html {
@@ -421,23 +423,76 @@ body {
 }
 
 @keyframes tileFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-6px);
   }
 }
 
-.tile:nth-child(1)  { animation-duration: 4.1s; animation-delay: 0s;    background: #1e293b; }
-.tile:nth-child(2)  { animation-duration: 3.7s; animation-delay: 0.4s;  background: #172554; }
-.tile:nth-child(3)  { animation-duration: 4.5s; animation-delay: 0.8s;  background: #2e1065; }
-.tile:nth-child(4)  { animation-duration: 3.9s; animation-delay: 0.2s;  background: #1e1b4b; grid-column: span 1; }
-.tile:nth-child(5)  { animation-duration: 4.3s; animation-delay: 0.6s;  background: linear-gradient(135deg, rgba(244,63,94,0.3) 0%, rgba(245,158,11,0.2) 100%); grid-column: span 2; aspect-ratio: 2/1; border-color: rgba(244,63,94,0.3); }
-.tile:nth-child(6)  { animation-duration: 4.0s; animation-delay: 0.3s;  background: #0f172a; grid-column: span 2; aspect-ratio: 2/1; }
-.tile:nth-child(7)  { animation-duration: 3.8s; animation-delay: 0.7s;  background: #1e293b; }
-.tile:nth-child(8)  { animation-duration: 4.4s; animation-delay: 0.5s;  background: #132a24; }
-.tile:nth-child(9)  { animation-duration: 4.2s; animation-delay: 0.1s;  background: #311c1c; }
+.tile:nth-child(1) {
+  animation-duration: 4.1s;
+  animation-delay: 0s;
+  background: #1e293b;
+}
+
+.tile:nth-child(2) {
+  animation-duration: 3.7s;
+  animation-delay: 0.4s;
+  background: #172554;
+}
+
+.tile:nth-child(3) {
+  animation-duration: 4.5s;
+  animation-delay: 0.8s;
+  background: #2e1065;
+}
+
+.tile:nth-child(4) {
+  animation-duration: 3.9s;
+  animation-delay: 0.2s;
+  background: #1e1b4b;
+  grid-column: span 1;
+}
+
+.tile:nth-child(5) {
+  animation-duration: 4.3s;
+  animation-delay: 0.6s;
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.3) 0%, rgba(245, 158, 11, 0.2) 100%);
+  grid-column: span 2;
+  aspect-ratio: 2/1;
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.tile:nth-child(6) {
+  animation-duration: 4.0s;
+  animation-delay: 0.3s;
+  background: #0f172a;
+  grid-column: span 2;
+  aspect-ratio: 2/1;
+}
+
+.tile:nth-child(7) {
+  animation-duration: 3.8s;
+  animation-delay: 0.7s;
+  background: #1e293b;
+}
+
+.tile:nth-child(8) {
+  animation-duration: 4.4s;
+  animation-delay: 0.5s;
+  background: #132a24;
+}
+
+.tile:nth-child(9) {
+  animation-duration: 4.2s;
+  animation-delay: 0.1s;
+  background: #311c1c;
+}
 
 .tile-inner {
   position: absolute;
@@ -709,14 +764,37 @@ body {
   background: var(--canvas-elevated);
 }
 
-.demo-tile:nth-child(1) { background: #1e293b; }
-.demo-tile:nth-child(2) { background: #172554; }
-.demo-tile:nth-child(3) { background: #2e1065; }
-.demo-tile:nth-child(4) { background: #1e1b4b; }
-.demo-tile:nth-child(5) { background: #0f172a; }
-.demo-tile:nth-child(6) { background: #132a24; }
-.demo-tile:nth-child(7) { background: #311c1c; }
-.demo-tile:nth-child(8) { background: #1f2937; }
+.demo-tile:nth-child(1) {
+  background: #1e293b;
+}
+
+.demo-tile:nth-child(2) {
+  background: #172554;
+}
+
+.demo-tile:nth-child(3) {
+  background: #2e1065;
+}
+
+.demo-tile:nth-child(4) {
+  background: #1e1b4b;
+}
+
+.demo-tile:nth-child(5) {
+  background: #0f172a;
+}
+
+.demo-tile:nth-child(6) {
+  background: #132a24;
+}
+
+.demo-tile:nth-child(7) {
+  background: #311c1c;
+}
+
+.demo-tile:nth-child(8) {
+  background: #1f2937;
+}
 
 /* ────────────────────────────
    SECTION: HOW IT WORKS
@@ -964,11 +1042,25 @@ footer {
   transform: translateY(0);
 }
 
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }
-.delay-5 { transition-delay: 0.5s; }
+.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.delay-4 {
+  transition-delay: 0.4s;
+}
+
+.delay-5 {
+  transition-delay: 0.5s;
+}
 
 /* ── MOBILE / RESPONSIVE ── */
 @media (max-width: 768px) {
@@ -1092,6 +1184,7 @@ footer {
 :root[data-theme="dark"] .theme-icon.icon-moon {
   display: none;
 }
+
 :root[data-theme="dark"] .theme-icon.icon-sun {
   display: block;
 }
@@ -1099,29 +1192,80 @@ footer {
 :root[data-theme="light"] .theme-icon.icon-sun {
   display: none;
 }
+
 :root[data-theme="light"] .theme-icon.icon-moon {
   display: block;
 }
 
 /* Light Mode mosaic tile palettes */
-:root[data-theme="light"] .tile:nth-child(1) { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); }
-:root[data-theme="light"] .tile:nth-child(2) { background: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%); }
-:root[data-theme="light"] .tile:nth-child(3) { background: linear-gradient(135deg, #fbcfe8 0%, #f472b6 100%); }
-:root[data-theme="light"] .tile:nth-child(4) { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); }
-:root[data-theme="light"] .tile:nth-child(5) { background: linear-gradient(135deg, rgba(244,63,94,0.16) 0%, rgba(245,158,11,0.16) 100%); border-color: rgba(244,63,94,0.35); }
-:root[data-theme="light"] .tile:nth-child(6) { background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%); }
-:root[data-theme="light"] .tile:nth-child(7) { background: linear-gradient(135deg, #fed7aa 0%, #fb923c 100%); }
-:root[data-theme="light"] .tile:nth-child(8) { background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%); }
-:root[data-theme="light"] .tile:nth-child(9) { background: linear-gradient(135deg, #fecdd3 0%, #fda4af 100%); }
+:root[data-theme="light"] .tile:nth-child(1) {
+  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+}
 
-:root[data-theme="light"] .demo-tile:nth-child(1) { background: #e2e8f0; }
-:root[data-theme="light"] .demo-tile:nth-child(2) { background: #bae6fd; }
-:root[data-theme="light"] .demo-tile:nth-child(3) { background: #fbcfe8; }
-:root[data-theme="light"] .demo-tile:nth-child(4) { background: #ddd6fe; }
-:root[data-theme="light"] .demo-tile:nth-child(5) { background: #cbd5e1; }
-:root[data-theme="light"] .demo-tile:nth-child(6) { background: #a7f3d0; }
-:root[data-theme="light"] .demo-tile:nth-child(7) { background: #fed7aa; }
-:root[data-theme="light"] .demo-tile:nth-child(8) { background: #fecdd3; }
+:root[data-theme="light"] .tile:nth-child(2) {
+  background: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%);
+}
+
+:root[data-theme="light"] .tile:nth-child(3) {
+  background: linear-gradient(135deg, #fbcfe8 0%, #f472b6 100%);
+}
+
+:root[data-theme="light"] .tile:nth-child(4) {
+  background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);
+}
+
+:root[data-theme="light"] .tile:nth-child(5) {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.16) 0%, rgba(245, 158, 11, 0.16) 100%);
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
+:root[data-theme="light"] .tile:nth-child(6) {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+}
+
+:root[data-theme="light"] .tile:nth-child(7) {
+  background: linear-gradient(135deg, #fed7aa 0%, #fb923c 100%);
+}
+
+:root[data-theme="light"] .tile:nth-child(8) {
+  background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%);
+}
+
+:root[data-theme="light"] .tile:nth-child(9) {
+  background: linear-gradient(135deg, #fecdd3 0%, #fda4af 100%);
+}
+
+:root[data-theme="light"] .demo-tile:nth-child(1) {
+  background: #e2e8f0;
+}
+
+:root[data-theme="light"] .demo-tile:nth-child(2) {
+  background: #bae6fd;
+}
+
+:root[data-theme="light"] .demo-tile:nth-child(3) {
+  background: #fbcfe8;
+}
+
+:root[data-theme="light"] .demo-tile:nth-child(4) {
+  background: #ddd6fe;
+}
+
+:root[data-theme="light"] .demo-tile:nth-child(5) {
+  background: #cbd5e1;
+}
+
+:root[data-theme="light"] .demo-tile:nth-child(6) {
+  background: #a7f3d0;
+}
+
+:root[data-theme="light"] .demo-tile:nth-child(7) {
+  background: #fed7aa;
+}
+
+:root[data-theme="light"] .demo-tile:nth-child(8) {
+  background: #fecdd3;
+}
 
 @media (max-width: 768px) {
   .top-nav-actions {
@@ -1129,6 +1273,7 @@ footer {
     right: 16px;
     gap: 8px;
   }
+
   .theme-toggle-btn,
   .github-link {
     width: 40px;
