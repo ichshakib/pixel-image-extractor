@@ -116,18 +116,10 @@ export async function convertImageToDataUrl(
 
     // 4. Standard raster formats (PNG, JPG, WebP)
     const mimeType =
-      targetFormat === 'jpeg'
-        ? 'image/jpeg'
-        : targetFormat === 'webp'
-        ? 'image/webp'
-        : 'image/png';
+      targetFormat === 'jpeg' ? 'image/jpeg' : targetFormat === 'webp' ? 'image/webp' : 'image/png';
 
     const filenameExt =
-      targetFormat === 'jpeg'
-        ? '.jpg'
-        : targetFormat === 'webp'
-        ? '.webp'
-        : '.png';
+      targetFormat === 'jpeg' ? '.jpg' : targetFormat === 'webp' ? '.webp' : '.png';
 
     const convertedBlob = await canvas.convertToBlob({
       type: mimeType,
@@ -137,64 +129,75 @@ export async function convertImageToDataUrl(
     const dataUrl = await blobToDataUrl(convertedBlob);
     return { dataUrl, filenameExt };
   } catch (workerError) {
-    console.debug('[Background] Worker conversion failed, attempting in-tab fallback:', workerError);
+    console.debug(
+      '[Background] Worker conversion failed, attempting in-tab fallback:',
+      workerError
+    );
 
     // Attempt 2: Fallback in tab context (for blob: URLs or page-scoped resources)
     if (tabId) {
       const results = await chrome.scripting.executeScript({
         target: { tabId },
         func: async (url: string, format: string) => {
-          return new Promise<{ dataUrl: string; width: number; height: number; isBlobUrl?: boolean }>(
-            (resolve, reject) => {
-              const img = new Image();
-              img.crossOrigin = 'anonymous';
+          return new Promise<{
+            dataUrl: string;
+            width: number;
+            height: number;
+            isBlobUrl?: boolean;
+          }>((resolve, reject) => {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
 
-              img.onload = () => {
-                try {
-                  const width = img.naturalWidth || img.width || 300;
-                  const height = img.naturalHeight || img.height || 300;
-                  const canvas = document.createElement('canvas');
-                  canvas.width = width;
-                  canvas.height = height;
-                  const ctx = canvas.getContext('2d');
-                  if (!ctx) return reject(new Error('Canvas 2D context unavailable'));
+            img.onload = () => {
+              try {
+                const width = img.naturalWidth || img.width || 300;
+                const height = img.naturalHeight || img.height || 300;
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                if (!ctx) return reject(new Error('Canvas 2D context unavailable'));
 
-                  if (format === 'jpeg' || format === 'jfif' || format === 'pdf') {
-                    ctx.fillStyle = '#ffffff';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                  }
+                if (format === 'jpeg' || format === 'jfif' || format === 'pdf') {
+                  ctx.fillStyle = '#ffffff';
+                  ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
 
-                  ctx.drawImage(img, 0, 0);
+                ctx.drawImage(img, 0, 0);
 
-                  const mime =
-                    format === 'jpeg' || format === 'jfif' || format === 'pdf'
-                      ? 'image/jpeg'
-                      : format === 'webp'
+                const mime =
+                  format === 'jpeg' || format === 'jfif' || format === 'pdf'
+                    ? 'image/jpeg'
+                    : format === 'webp'
                       ? 'image/webp'
                       : 'image/png';
 
-                  resolve({ dataUrl: canvas.toDataURL(mime, 0.95), width, height });
-                } catch (e) {
-                  reject(e);
-                }
-              };
+                resolve({ dataUrl: canvas.toDataURL(mime, 0.95), width, height });
+              } catch (e) {
+                reject(e);
+              }
+            };
 
-              img.onerror = () => {
-                fetch(url)
-                  .then((r) => r.blob())
-                  .then((b) => {
-                    const reader = new FileReader();
-                    reader.onloadend = () =>
-                      resolve({ dataUrl: reader.result as string, width: 300, height: 300, isBlobUrl: true });
-                    reader.onerror = reject;
-                    reader.readAsDataURL(b);
-                  })
-                  .catch(reject);
-              };
+            img.onerror = () => {
+              fetch(url)
+                .then((r) => r.blob())
+                .then((b) => {
+                  const reader = new FileReader();
+                  reader.onloadend = () =>
+                    resolve({
+                      dataUrl: reader.result as string,
+                      width: 300,
+                      height: 300,
+                      isBlobUrl: true,
+                    });
+                  reader.onerror = reject;
+                  reader.readAsDataURL(b);
+                })
+                .catch(reject);
+            };
 
-              img.src = url;
-            }
-          );
+            img.src = url;
+          });
         },
         args: [srcUrl, targetFormat],
       });
@@ -219,10 +222,10 @@ export async function convertImageToDataUrl(
           targetFormat === 'jpeg'
             ? '.jpg'
             : targetFormat === 'webp'
-            ? '.webp'
-            : targetFormat === 'gif'
-            ? '.gif'
-            : '.png';
+              ? '.webp'
+              : targetFormat === 'gif'
+                ? '.gif'
+                : '.png';
 
         return { dataUrl, filenameExt };
       }

@@ -19,7 +19,11 @@ function notify() {
   listeners.forEach((listener) => listener([...toasts]));
 }
 
-function addToast(type: ToastType, message: string, options?: { id?: string | number; duration?: number }) {
+function addToast(
+  type: ToastType,
+  message: string,
+  options?: { id?: string | number; duration?: number }
+) {
   const id = options?.id ?? `toast_${++counter}`;
   const duration = options?.duration ?? (type === 'loading' ? 0 : 3500);
 

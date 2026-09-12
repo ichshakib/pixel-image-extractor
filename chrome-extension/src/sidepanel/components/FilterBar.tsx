@@ -18,10 +18,7 @@ export const FilterBar = () => {
   const uniqueFormats = useImageStore((s) => s.uniqueFormats);
 
   const hasActiveFilters =
-    selectedSize !== 'all' ||
-    selectedFormat !== 'all' ||
-    sortBy !== 'size' ||
-    sortOrder !== 'desc';
+    selectedSize !== 'all' || selectedFormat !== 'all' || sortBy !== 'size' || sortOrder !== 'desc';
 
   const handleReset = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -43,9 +40,7 @@ export const FilterBar = () => {
         <div className="filter-accordion-title">
           <SlidersHorizontal size={14} className="filter-icon" />
           <span className="filter-title-text">Advanced Filters & Sorting</span>
-          {hasActiveFilters && (
-            <span className="filter-active-badge">Active</span>
-          )}
+          {hasActiveFilters && <span className="filter-active-badge">Active</span>}
         </div>
 
         <div className="filter-accordion-right">

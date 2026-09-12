@@ -57,11 +57,7 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
       if (scannedRoots.has(currentRoot)) continue;
       scannedRoots.add(currentRoot);
 
-      const walker = document.createTreeWalker(
-        currentRoot,
-        NodeFilter.SHOW_ELEMENT,
-        null
-      );
+      const walker = document.createTreeWalker(currentRoot, NodeFilter.SHOW_ELEMENT, null);
 
       while (walker.nextNode()) {
         const el = walker.currentNode as Element;

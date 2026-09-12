@@ -31,11 +31,17 @@ export const LoadingSkeleton = ({ showHeader = false }: LoadingSkeletonProps) =>
       </div>
 
       {/* Status text skeleton */}
-      <div className="skeleton" style={{ width: 150, height: 13, marginBottom: 10, borderRadius: 4 }} />
+      <div
+        className="skeleton"
+        style={{ width: 150, height: 13, marginBottom: 10, borderRadius: 4 }}
+      />
 
       {/* Select all skeleton */}
       <div className="select-all-row">
-        <div className="skeleton" style={{ width: 16, height: 16, borderRadius: 4, flexShrink: 0 }} />
+        <div
+          className="skeleton"
+          style={{ width: 16, height: 16, borderRadius: 4, flexShrink: 0 }}
+        />
         <div className="skeleton" style={{ width: 95, height: 13, borderRadius: 4 }} />
       </div>
 

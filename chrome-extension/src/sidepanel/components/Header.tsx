@@ -11,7 +11,9 @@ export const Header = () => {
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('pixel-theme');
     if (saved) return saved === 'dark';
-    return typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return (
+      typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
+    );
   });
 
   useEffect(() => {
@@ -40,7 +42,11 @@ export const Header = () => {
       >
         <div className="header-logo">
           <img
-            src={typeof chrome !== 'undefined' && chrome.runtime?.getURL ? chrome.runtime.getURL('logo.svg') : '/logo.svg'}
+            src={
+              typeof chrome !== 'undefined' && chrome.runtime?.getURL
+                ? chrome.runtime.getURL('logo.svg')
+                : '/logo.svg'
+            }
             alt="Pixel"
             className="header-logo-img"
           />

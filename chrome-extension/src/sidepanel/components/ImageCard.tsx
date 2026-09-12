@@ -19,19 +19,12 @@ export const ImageCard = ({
   onCopyLink,
   onExternalLink,
 }: ImageCardProps) => {
-  const formatTag = image.mimetype
-    ? image.mimetype.split('/')[1]?.toUpperCase()
-    : null;
+  const formatTag = image.mimetype ? image.mimetype.split('/')[1]?.toUpperCase() : null;
 
   return (
     <div className={`image-card ${isSelected ? 'is-selected' : ''}`}>
       <div className="card-media" onClick={() => onSelect(image.id, !isSelected)}>
-        <img
-          src={image.url}
-          alt={image.alt}
-          className="card-img"
-          loading="lazy"
-        />
+        <img src={image.url} alt={image.alt} className="card-img" loading="lazy" />
         <div className="card-checkbox-overlay" onClick={(e) => e.stopPropagation()}>
           <input
             type="checkbox"

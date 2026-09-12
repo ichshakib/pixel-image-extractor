@@ -45,11 +45,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
           <p className="error-desc">
             {this.state.error?.message || 'An unexpected error occurred while rendering.'}
           </p>
-          <button
-            type="button"
-            onClick={this.handleReload}
-            className="btn btn-primary"
-          >
+          <button type="button" onClick={this.handleReload} className="btn btn-primary">
             <RefreshCcw size={14} style={{ marginRight: '6px' }} />
             Reload Sidepanel
           </button>

@@ -3,7 +3,11 @@ import { GifWriter } from 'omggif';
 /**
  * Creates a standard PDF 1.4 document containing a single JPEG image.
  */
-export function createPdfFromJpeg(jpegBytes: Uint8Array, width: number, height: number): Uint8Array {
+export function createPdfFromJpeg(
+  jpegBytes: Uint8Array,
+  width: number,
+  height: number
+): Uint8Array {
   const lines: Uint8Array[] = [];
   const offsets: number[] = [];
   let currentPos = 0;

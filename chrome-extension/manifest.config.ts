@@ -1,4 +1,4 @@
-import { defineManifest } from '@crxjs/vite-plugin'
+import { defineManifest } from '@crxjs/vite-plugin';
 import pkg from './package.json' with { type: 'json' };
 
 export default defineManifest({
@@ -30,4 +30,4 @@ export default defineManifest({
   side_panel: {
     default_path: 'src/sidepanel/index.html',
   },
-})
+});

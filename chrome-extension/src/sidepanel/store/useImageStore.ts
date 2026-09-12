@@ -8,11 +8,7 @@ import {
   exportImagesAsJSON,
   getFileExtension,
 } from '../utils/export';
-import {
-  computeFilteredImages,
-  computeSortedImages,
-  deriveAllImagesState,
-} from './imageFilters';
+import { computeFilteredImages, computeSortedImages, deriveAllImagesState } from './imageFilters';
 import type { ImageItem, SortByOption, SortOrder } from '../types';
 
 interface ImageState {

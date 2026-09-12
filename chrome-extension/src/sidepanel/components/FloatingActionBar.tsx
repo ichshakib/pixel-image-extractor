@@ -37,19 +37,11 @@ export const FloatingActionBar = () => {
             )}
           </button>
 
-          <button
-            type="button"
-            onClick={exportCSV}
-            className="btn btn-outline"
-          >
+          <button type="button" onClick={exportCSV} className="btn btn-outline">
             CSV Format
           </button>
 
-          <button
-            type="button"
-            onClick={exportJSON}
-            className="btn btn-outline"
-          >
+          <button type="button" onClick={exportJSON} className="btn btn-outline">
             JSON Format
           </button>
         </div>
