@@ -15,7 +15,7 @@ export default defineConfig({
   plugins: [
     react(),
     crx({ manifest }),
-    zip({ outDir: 'release', outFileName: `pixel-image-extractor-${name}-${version}.zip` }),
+    zip({ outDir: 'release', outFileName: `${name}-chrome-extension-${version}.zip` }),
   ],
   server: {
     cors: {

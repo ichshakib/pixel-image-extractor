@@ -14,6 +14,16 @@
   <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="MIT License" />
 </p>
 
+<p align="center">
+  <a href="https://github.com/ichshakib/pixel-image-extractor/releases/download/v1.0.2/pixel-image-extractor-chrome-extension-1.0.2.zip">
+    <img src="https://img.shields.io/badge/Download%20Extension-v1.0.2-f43f5e?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Download Extension v1.0.2" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://ichshakib.github.io/pixel-image-extractor/">
+    <img src="https://img.shields.io/badge/Official%20Website-Visit%20Site-10b981?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Visit Official Website" />
+  </a>
+</p>
+
 ---
 
 ## 📖 Overview
@@ -183,7 +193,7 @@ This will:
 
 1. Run TypeScript validation (`tsc -b`).
 2. Generate the optimized bundle in the `dist/` folder.
-3. Package a zipped extension archive into the `release/` directory (e.g. `release/pixel-image-extractor-chrome-extension-1.0.1.zip`) ready for distribution or the Chrome Web Store.
+3. Package a zipped extension archive into the `release/` directory (e.g. `release/pixel-image-extractor-chrome-extension-1.0.2.zip`) ready for distribution or the Chrome Web Store.
 
 ---
 

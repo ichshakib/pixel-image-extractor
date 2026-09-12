@@ -12,6 +12,20 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="MIT License" /></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/ichshakib/pixel-image-extractor/releases/download/v1.0.2/pixel-image-extractor-chrome-extension-1.0.2.zip">
+    <img src="https://img.shields.io/badge/Download%20Extension-v1.0.2-f43f5e?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Download Extension v1.0.2" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://ichshakib.github.io/pixel-image-extractor/">
+    <img src="https://img.shields.io/badge/Official%20Website-Visit%20Site-10b981?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Visit Official Website" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/ichshakib/pixel-image-extractor/releases/tag/v1.0.2">
+    <img src="https://img.shields.io/badge/GitHub%20Release-v1.0.2-6366f1?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Release v1.0.2" />
+  </a>
+</p>
+
 > Maintained by [Shakib Khan (`@ichshakib`)](https://github.com/ichshakib)
 
 ---
@@ -25,6 +39,7 @@
 - [Project Architecture](#project-architecture)
 - [Tech Stack](#tech-stack)
 - [Installation & Setup](#installation--setup)
+  - [Quick Install (Pre-built Release)](#-quick-install-pre-built-release)
   - [From Source (Production Build)](#from-source-production-build)
   - [Development Mode (HMR)](#development-mode-hmr)
   - [Standalone Web App](#standalone-web-app)
@@ -182,6 +197,16 @@ pixel-image-extractor/
 ---
 
 ## Installation & Setup
+
+### ⚡ Quick Install (Pre-built Release)
+
+1. **Download the latest release archive:**
+   👉 **[pixel-image-extractor-chrome-extension-1.0.2.zip](https://github.com/ichshakib/pixel-image-extractor/releases/download/v1.0.2/pixel-image-extractor-chrome-extension-1.0.2.zip)** (or download directly from the [Official Website](https://ichshakib.github.io/pixel-image-extractor/)).
+2. **Extract the ZIP file** to a local directory on your computer.
+3. Open Google Chrome and navigate to `chrome://extensions/`.
+4. Enable **Developer mode** toggle in the top-right corner.
+5. Click **Load unpacked** and select the extracted folder.
+6. Pin **Pixel** to your Chrome toolbar and start extracting!
 
 ### From Source (Production Build)
 

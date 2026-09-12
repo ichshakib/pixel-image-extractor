@@ -3,9 +3,8 @@ import pkg from './package.json' with { type: 'json' };
 
 export default defineManifest({
   manifest_version: 3,
-  name: 'Pixel — Image Extractor',
-  description:
-    'A high-performance Chrome extension for extracting, analyzing, and managing images from any webpage.',
+  name: pkg.displayName || pkg.name,
+  description: pkg.description,
   version: pkg.version,
   icons: {
     16: 'public/icons/icon16.png',
@@ -16,7 +15,7 @@ export default defineManifest({
   permissions: ['sidePanel', 'activeTab', 'scripting', 'contextMenus', 'downloads'],
   host_permissions: ['<all_urls>'],
   action: {
-    default_title: 'Pixel — Image Extractor',
+    default_title: pkg.displayName || pkg.name,
   },
   background: {
     service_worker: 'src/background/index.ts',
