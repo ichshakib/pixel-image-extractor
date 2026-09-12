@@ -173,7 +173,7 @@ npm run build
 This will:
 1. Run TypeScript validation (`tsc -b`).
 2. Generate the optimized bundle in the `dist/` folder.
-3. Package a zipped extension archive into the `release/` directory (e.g. `release/crx-chrome-extension-1.0.0.zip`) ready for distribution or the Chrome Web Store.
+3. Package a zipped extension archive into the `release/` directory (e.g. `release/pixel-image-extractor-chrome-extension-1.0.1.zip`) ready for distribution or the Chrome Web Store.
 
 ---
 
