@@ -19,6 +19,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Screenshots](#-screenshots)
 - [Key Features](#key-features)
 - [How It Works](#how-it-works)
 - [Project Architecture](#project-architecture)
@@ -44,6 +45,14 @@
 **Pixel** is an image asset extractor that empowers designers, developers, content creators, and researchers to discover, filter, convert, and download images from any webpage.
 
 Operating entirely locally inside your browser, Pixel scans the full DOM tree—including encapsulated **Shadow DOM** components—and presents assets in a multi-column interface inside Chrome's native Side Panel. Additionally, it injects a right-click **"Save Image As"** context menu supporting conversion to **PNG**, **JPG**, **WebP**, **JFIF**, **GIF**, and **PDF**.
+
+---
+
+## 📸 Screenshots
+
+| 🌙 Dark Mode | ☀️ Light Mode |
+| :---: | :---: |
+| <img src="chrome-extension/public/extension_demos/dark.png" alt="Pixel Side Panel - Dark Mode" width="400" /> | <img src="chrome-extension/public/extension_demos/light.png" alt="Pixel Side Panel - Light Mode" width="400" /> |
 
 ---
 
@@ -121,6 +130,7 @@ sequenceDiagram
 pixel-image-extractor/
 ├── chrome-extension/              # Manifest V3 Chrome Extension
 │   ├── public/
+│   │   ├── extension_demos/       # Side panel preview screenshots (dark.png, light.png)
 │   │   ├── icons/                 # Extension icon set (16, 32, 48, 128)
 │   │   └── logo.svg               # Vector brand logo
 │   ├── src/
