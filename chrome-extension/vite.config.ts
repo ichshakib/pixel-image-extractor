@@ -9,7 +9,7 @@ import { name, version } from './package.json' with { type: 'json' }
 export default defineConfig({
   resolve: {
     alias: {
-      '@': `${path.resolve(im, 'src')}`,
+      '@': `${path.resolve(import.meta.dirname, 'src')}`,
     },
   },
   plugins: [
