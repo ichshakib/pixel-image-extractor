@@ -1,4 +1,4 @@
-# <img src="./chrome-extension/public/logo.svg" alt="Pixel Logo" width="36" style="vertical-align: middle; margin-right: 8px;" /> Pixel — Image Extractor
+# <img src="assets/logo.svg" alt="Pixel Logo" width="36" style="vertical-align: middle; margin-right: 8px;" /> Pixel — Image Extractor
 
 <p align="center">
   <em>A high-performance Chrome side panel extension and standalone web application for discovering, analyzing, converting, and exporting images from any webpage.</em>
@@ -67,7 +67,7 @@ Operating entirely locally inside your browser, Pixel scans the full DOM tree—
 
 | 🌙 Dark Mode | ☀️ Light Mode |
 | :---: | :---: |
-| <img src="chrome-extension/public/extension_demos/dark.png" alt="Pixel Side Panel - Dark Mode" width="400" /> | <img src="chrome-extension/public/extension_demos/light.png" alt="Pixel Side Panel - Light Mode" width="400" /> |
+| <img src="assets/extension_demos/dark.png" alt="Pixel Side Panel - Dark Mode" width="400" /> | <img src="assets/extension_demos/light.png" alt="Pixel Side Panel - Light Mode" width="400" /> |
 
 ---
 
@@ -143,6 +143,9 @@ sequenceDiagram
 
 ```text
 pixel-image-extractor/
+├── assets/                        # Project branding and demo screenshot assets
+│   ├── extension_demos/           # Side panel preview screenshots (dark.png, light.png)
+│   └── logo.svg                   # Vector brand logo
 ├── chrome-extension/              # Manifest V3 Chrome Extension
 │   ├── public/
 │   │   ├── extension_demos/       # Side panel preview screenshots (dark.png, light.png)
