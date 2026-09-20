@@ -1,4 +1,4 @@
-# <img src="logo.svg" alt="Pixel Logo" width="36" style="vertical-align: middle; margin-right: 8px;" /> Pixel — Image Extractor
+# <img src="./chrome-extension/public/logo.svg" alt="Pixel Logo" width="36" style="vertical-align: middle; margin-right: 8px;" /> Pixel — Image Extractor
 
 <p align="center">
   <em>A high-performance Chrome side panel extension and standalone web application for discovering, analyzing, converting, and exporting images from any webpage.</em>
