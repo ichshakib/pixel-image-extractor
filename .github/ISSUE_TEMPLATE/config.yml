@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 General Questions & Discussions
+    url: https://github.com/ichshakib/pixel-image-extractor/discussions
+    about: Ask questions, share ideas, or discuss features with the community.
+  - name: 🔒 Security Vulnerabilities
+    url: mailto:ichshakib@gmail.com
+    about: Please report potential security vulnerabilities privately via email to the maintainer.
